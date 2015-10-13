@@ -1376,6 +1376,11 @@ static void tcp_show_info(const struct nlmsghdr *nlh, struct inet_diag_msg *r)
 			printf(" cwnd:%d", info->tcpi_snd_cwnd);
 		if (info->tcpi_snd_ssthresh < 0xFFFF)
 			printf(" ssthresh:%d", info->tcpi_snd_ssthresh);
+		printf(" unacked:%d", info->tcpi_unacked);
+		printf(" sacked:%d", info->tcpi_sacked);
+		printf(" retransmits:%d", info->tcpi_retransmits);
+		printf(" retrans:%d", info->tcpi_retrans);
+		printf(" lost:%d", info->tcpi_lost);
 
 		rtt = (double) info->tcpi_rtt;
 		if (tb[INET_DIAG_VEGASINFO]) {
